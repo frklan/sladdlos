@@ -13,7 +13,7 @@
       <font-awesome-icon icon="heartbeat" v-bind:class="heartbeatColor" />
     </div>
 
-    <login v-if="gateway.status==='api error'"></login>
+    <login v-if="gateway.status==='api error' || gateway.status==='Network Error'"></login>
   </div>
 </template>
 
