@@ -21,7 +21,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "Sladdlös",
+    "productName": "sladdlos",
     "appId": "com.yellowfortyfour.sladdlos",
     "directories": {
       "output": "build"
