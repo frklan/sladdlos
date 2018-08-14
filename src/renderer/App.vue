@@ -69,17 +69,16 @@
     border: 1.1px solid #f8f8f8;
   }
 
-  main {
+  .main {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-basis: 50%; 
   }
-
-  main > div { flex-basis: 50%; }
 
   .modal {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */

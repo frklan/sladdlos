@@ -1,45 +1,36 @@
 <template>
-  <div id="wrapper">
-    <h1>Gateway Status</h1>
-
-    <table id="bulbs">
-      <tr align="left">
-        <th>Status</th>
-        <th>{{gateway.status}} </th>
-      </tr>
-      <tr align="left">
-        <th>Name</th>
-        <th>{{gateway.name}}</th>
-      </tr>
-      <tr align="left">
-        <th>Host</th>
-        <th>{{gateway.host}} </th>
-      </tr>
-    </table>
+  <div v-if="isVisible"  id="myModal" class="modal">
+    <div class="modal-content">
+      <gateway-details></gateway-details>
+      <br>
+      <button class="alt" @click="close()">close</button>
+    </div> 
   </div>
 </template>
 
 <script>
-export default {
-  name: 'gateway-info',
-  components: {},
-  data: function () {
-    return { }
-  },
-  computed: {
-    gateway: function() {
-      return this.$store.state.Gateway.gateway;
+  import GatewayDetails from './GatewayInfo/GatewayDetails';
+
+  export default {
+    name: 'gateway-info',
+    props: [],
+    components: { GatewayDetails },
+    data: function() {
+      return { }
     },
+    computed: {
+      isVisible: function() {
+        return this.$store.state.Gateway.showGatewayInfo;
+      }
+    },
+    methods: {
+      close() {
+        this.$store.commit('SET_SHOW_GATEWAY_STATUS', false);
+      }
+    }
   }
-}
 </script>
 
-<style scoped>
-  th {
-    padding-right : 2em;
-    line-height: 1.5em;
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+<style>
+
 </style>

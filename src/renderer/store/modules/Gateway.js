@@ -8,6 +8,7 @@ const state = {
     host: '',
   },
   lightbulbs: [],
+  showGatewayInfo: false,
 }
 
 const mutations = {
@@ -18,7 +19,10 @@ const mutations = {
   },
   SET_LIGHTBULBS(state, lightbulbs) {
     state.lightbulbs = lightbulbs;
-  }
+  },
+  SET_SHOW_GATEWAY_STATUS(state, isVisible) {
+    state.showGatewayInfo = isVisible;
+  },
 }
 
 const actions = {

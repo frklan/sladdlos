@@ -1,18 +1,17 @@
 <template>
   <div id="wrapper">
-    <main>
-      <div class="left-side">
-        <GatewayInfo></GatewayInfo>
-      </div>
-      <div class="right-side">
-        <tradfri-list></tradfri-list>
-      </div>
-    </main>
 
+    <div class="main">
+      <tradfri-list></tradfri-list>
+    </div>
+    
     <div class="footer">
       <font-awesome-icon icon="heartbeat" v-bind:class="heartbeatColor" />
+      <font-awesome-icon icon="digital-tachograph" @click="showGatewayInfo()"/>
     </div>
 
+    <!-- modal dialogs..-->
+    <gateway-info/>
     <login v-if="gateway.status==='api error' || gateway.status==='Network Error'"></login>
   </div>
 </template>
@@ -27,7 +26,8 @@
     name: 'landing-page',
     components: { GatewayInfo, TradfriList, OfflineWarning, Login},
     data: function() {
-      return { }
+      return { 
+      }
     },
     computed: {
       gateway: function() {
@@ -37,6 +37,11 @@
         return this.$store.state.Gateway.gateway.status === 'online' ? 'heartbeat-green' : 'heartbeat-red';
       }
     },
+    methods: {
+      showGatewayInfo: function() {
+        this.$store.commit('SET_SHOW_GATEWAY_STATUS', true);
+      }
+    }
   }
 </script>
 
@@ -50,7 +55,7 @@
   .right-side {
     flex:1;
     min-width:20%;
-    max-width: 45%; 
+    /*max-width: 45%; */
     margin-left: 2.5em;
   }
 
