@@ -8,11 +8,12 @@
     <div class="footer">
       <font-awesome-icon icon="heartbeat" v-bind:class="heartbeatColor" />
       <font-awesome-icon icon="digital-tachograph" @click="showGatewayInfo()"/>
+      <font-awesome-icon icon="cog" @click="showSettings()"/>
     </div>
 
     <!-- modal dialogs..-->
     <gateway-info/>
-    <login v-if="gateway.status==='api error' || gateway.status==='Network Error'"></login>
+    <login/>
   </div>
 </template>
 
@@ -40,6 +41,9 @@
     methods: {
       showGatewayInfo: function() {
         this.$store.commit('SET_SHOW_GATEWAY_STATUS', true);
+      },
+      showSettings: function() {
+        this.$store.commit('SET_SHOW_SETTINGS', true);
       }
     }
   }

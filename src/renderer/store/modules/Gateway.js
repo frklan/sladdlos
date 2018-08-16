@@ -9,6 +9,7 @@ const state = {
   },
   lightbulbs: [],
   showGatewayInfo: false,
+  showSettings: false,
 }
 
 const mutations = {
@@ -22,6 +23,9 @@ const mutations = {
   },
   SET_SHOW_GATEWAY_STATUS(state, isVisible) {
     state.showGatewayInfo = isVisible;
+  },
+  SET_SHOW_SETTINGS(state, isVisible) {
+    state.showSettings = isVisible;
   },
 }
 
@@ -58,6 +62,7 @@ function getBaseUrl() {
 function checkError(error, commit) {
   /* TODO: do proper error checking, for now assume all errors  *
      != 'Network Error' are related to accessing the api..      */
+  commit('SET_SHOW_SETTINGS', true);
   console.log(error);
   if(error == 'Error: Network Error') {
     commit('SET_GATEWAY', {status: 'Network Error'});  
