@@ -39,6 +39,7 @@ const actions = {
       const lightbulbs = response.data.lightbulbs;
       commit('SET_GATEWAY', gateway);
       commit('SET_LIGHTBULBS', lightbulbs);
+      commit('SET_STATUS', 'online');
     })
     .catch((error) => checkError(error, commit));
   },
@@ -60,15 +61,13 @@ function getBaseUrl() {
 }
 
 function checkError(error, commit) {
-  /* TODO: do proper error checking, for now assume all errors  *
-     != 'Network Error' are related to accessing the api..      */
-  commit('SET_SHOW_SETTINGS', true);
-  console.log(error);
   if(error == 'Error: Network Error') {
-    commit('SET_GATEWAY', {status: 'Network Error'});  
+    commit('SET_STATUS', 'network error');  
+  } else if(error == 'Error: Request failed with status code 401') {
+    commit('SET_STATUS', 'authorization error');  
   } else {
-    commit('SET_GATEWAY', {status: 'api error'});
-  }
+    commit('SET_STATUS', 'api error');
+  } 
 }
 
 export default {

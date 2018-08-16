@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
 
-    <div class="main">
+    <div class="main">    
       <tradfri-list></tradfri-list>
     </div>
     
@@ -11,9 +11,13 @@
       <font-awesome-icon icon="cog" @click="showSettings()"/>
     </div>
 
+    <!-- spinner + status message -->
+    <loader/>
+    
     <!-- modal dialogs..-->
     <gateway-info/>
     <login/>
+    
   </div>
 </template>
 
@@ -22,10 +26,11 @@
   import TradfriList from './TradfriList';
   import OfflineWarning from './OfflineWarning';
   import Login from './Login';
+  import Loader from './Loader'
 
   export default {
     name: 'landing-page',
-    components: { GatewayInfo, TradfriList, OfflineWarning, Login},
+    components: { Loader, GatewayInfo, TradfriList, OfflineWarning, Login},
     data: function() {
       return { 
       }
@@ -62,7 +67,7 @@
     /*max-width: 45%; */
     margin-left: 2.5em;
   }
-
+  
   .footer {
     position: fixed;
     z-index: 100; 

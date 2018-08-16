@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div v-if="isVisible">
     <h1>Trådfi Bulbs</h1>
     
     <table id="bulbs">
@@ -29,6 +29,9 @@ export default {
     bulbs: function() {
       return this.$store.state.Gateway.lightbulbs;
     },
+    isVisible: function() {
+      return (this.$store.state.Sladdlos.status === 'online');
+    }
   },
   methods: {
     toggleBulb(bulbId) {
