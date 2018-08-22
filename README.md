@@ -2,13 +2,15 @@
 
 A control panel for Ikea Trådfri lightbulbs.
 
+<img src="build/icons/orginal/sladdlos.png"/>
+
 ## Prerequisites
 
 1) One or more Ikea Trådfri lightbulb
 
 2) A Ikea Trådfri Gateway
 
-3) Caesium API end point
+3) A [Caesium](https://github.com/frklan/caesium) API end point
 
 ## Installation
 
