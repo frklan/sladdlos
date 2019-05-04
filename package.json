@@ -1,6 +1,6 @@
 {
   "name": "sladdlos",
-  "version": "0.0.0",
+  "version": "1.0.2",
   "author": "Fredrik Andersson <fredrik.k.andersson@gmail.com>",
   "description": "A control panel for Ikea Trådfri lightbulbs",
   "license": "MIT",
