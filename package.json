@@ -1,6 +1,6 @@
 {
   "name": "sladdlos",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Fredrik Andersson <fredrik.k.andersson@gmail.com>",
   "description": "A control panel for Ikea Trådfri lightbulbs",
   "license": "MIT",
@@ -59,7 +59,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/vue-fontawesome": "^0.1.1",
-    "axios": "^0.16.1",
+    "axios": "^0.18.1",
     "install": "^0.12.1",
     "npm": "^6.9.0",
     "vue": "^2.3.3",
